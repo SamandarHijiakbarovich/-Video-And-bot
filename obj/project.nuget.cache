@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "dgSpecHash": "0uA13g1nsaD4prFvQ9q78PZsVzIqJQIVkS7jxUWR95hsa6QfUGAjrIdCe0fqTqx/VYlK9m20xjhZLvHKB1+CrQ==",
+  "success": true,
+  "projectFilePath": "D:\\MessageBot\\ConverterBot\\Bot\\Bot.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Samandar\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "C:\\Users\\Samandar\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\Samandar\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\Samandar\\.nuget\\packages\\spotifyapi.web\\7.0.0\\spotifyapi.web.7.0.0.nupkg.sha512",
+    "C:\\Users\\Samandar\\.nuget\\packages\\swashbuckle.aspnetcore\\6.5.0\\swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
+    "C:\\Users\\Samandar\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
+    "C:\\Users\\Samandar\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
+    "C:\\Users\\Samandar\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.5.0\\swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512",
+    "C:\\Users\\Samandar\\.nuget\\packages\\telegram.bot\\19.0.0\\telegram.bot.19.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
