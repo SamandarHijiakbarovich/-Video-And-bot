@@ -1,73 +1,23 @@
-﻿using Telegram.Bot.Types;
-using Telegram.Bot;
-using Bot.Clients;
-using SpotifyAPI.Web;
+﻿using Bot.Clients;
 
 namespace Bot.Handlers;
 
-public partial class BotUpdateHandler
+public class BotMusicHandler
 {
-    public async Task MusicSearcher(
-        ITelegramBotClient botClient,
-        Message update,
-        CancellationToken cancellationToken)
-    {
-        await botClient.SendTextMessageAsync(update.Chat.Id,
-            "Qo'shiq nomini kiriting.",
-            cancellationToken: cancellationToken);
+    private readonly SpotifyClient _spotifyClient;
+    private readonly JamendoClient _jamendoClient;
 
+    public BotMusicHandler(SpotifyClient spotifyClient, JamendoClient jamendoClient)
+    {
+        _spotifyClient = spotifyClient;
+        _jamendoClient = jamendoClient;
     }
 
-    public async Task SearchMusic(ITelegramBotClient botClient,
-       Message text,
-       CancellationToken cancellationToken)
+    public async Task<List<string>> GetMusicPreviewsAsync(string query, CancellationToken cancellationToken = default)
     {
-        var settings = _sptoptions.Value ?? throw new ArgumentNullException(nameof(_sptoptions));
-        var spotifyConfig = SpotifyClientConfig.CreateDefault()
-        .WithAuthenticator(
-            new ClientCredentialsAuthenticator(settings.ClientId, settings.ClientSecret));
+        var spotifyPreviews = await _spotifyClient.SearchPreviewLinksAsync(query, cancellationToken);
+        var jamendoDownloads = await _jamendoClient.SearchDownloadableTracksAsync(query, cancellationToken);
 
-        var spotify = new SpotifyClient(spotifyConfig);
-
-        var searchItems = await spotify.Search.Item(new SearchRequest(SearchRequest.Types.All,
-            text.Text)
-        {
-            Limit = 10
-        }, cancellationToken);
-
-
-
-
-        if (searchItems.Tracks?.Items?.Count <= 0)
-        {
-            await botClient.SendTextMessageAsync(text.Chat.Id, "No track found.", cancellationToken: cancellationToken);
-        }
-        else
-        {
-
-            foreach (var track in searchItems.Tracks?.Items)
-            {
-                await botClient.SendTextMessageAsync(text.Chat.Id, $"{track.ExternalUrls["spotify"]}",
-                    cancellationToken: cancellationToken);
-                await botClient.SendTextMessageAsync(text.Chat.Id, track.PreviewUrl);
-                //await botClient.SendAudioAsync(
-                //    chatId: text.Chat.Id,
-                //    audio: track.PreviewUrl,
-                //    caption: "Qo'shiq nomi: " + track.Name, // Qo'shiqni nomi
-                //    duration: track.DurationMs / 1000 // Qo'shiq davomiati (sekundda)
-//);
-            }
-        }
-    }
-
-    public async Task DownloadFromYoutube(string Url, ITelegramBotClient bot, long chatId)
-    {
-        var client = new YoutubeClien();
-
-        var mp3Url = await client.ReturnDownloadLink(Url);
-
-        await bot.SendAudioAsync(
-            chatId: chatId,
-            audio: InputFile.FromUri(mp3Url));
+        return spotifyPreviews.Concat(jamendoDownloads).ToList();
     }
 }

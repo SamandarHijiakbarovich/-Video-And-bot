@@ -1,11 +1,12 @@
 {
   "Version": 1,
-  "Hash": "U1gAA1HJCbczN5cMUkD9ufoIWy1KBWDKNcAbU2ImH9U=",
+  "Hash": "+xyQaMr0HvoLv6UOpt0R83KhVVyxfYmXYpPz42tMppI=",
   "Source": "Bot",
   "BasePath": "_content/Bot",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
-  "Assets": []
+  "Assets": [],
+  "Endpoints": []
 }

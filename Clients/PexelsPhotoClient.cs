@@ -1,83 +1,32 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.Net.Http;
+using System.Text.Json;
+using Bot.Models.Pexels;
+using Microsoft.Extensions.Options;
+using Bot.Options;
 
 namespace Bot.Clients;
 
-public  class PexelsPhotoClient
+public class PexelsPhotoClient
 {
-    [JsonPropertyName("page")]
-    public long Page { get; set; }
+    private readonly HttpClient _httpClient;
+    private readonly PexelsOptions _options;
 
-    [JsonPropertyName("per_page")]
-    public long PerPage { get; set; }
+    public PexelsPhotoClient(HttpClient httpClient, IOptions<PexelsOptions> options)
+    {
+        _httpClient = httpClient;
+        _options = options.Value;
+        _httpClient.DefaultRequestHeaders.Add("Authorization", _options.ApiKey);
+    }
 
-    [JsonPropertyName("photos")]
-    public List<Photo> Photos { get; set; }
+    public async Task<List<string>> SearchPhotosAsync(string query, CancellationToken cancellationToken = default)
+    {
+        var url = $"https://api.pexels.com/v1/search?query={query}&per_page=5";
+        var response = await _httpClient.GetAsync(url, cancellationToken);
+        response.EnsureSuccessStatusCode();
 
-    [JsonPropertyName("total_results")]
-    public long TotalResults { get; set; }
+        var json = await response.Content.ReadAsStringAsync(cancellationToken);
+        var result = JsonSerializer.Deserialize<PhotoSearchResult>(json);
 
-    [JsonPropertyName("next_page")]
-    public string NextPage { get; set; }
+        return result?.Photos?.Select(p => p.Src?.Medium).Where(u => u != null).ToList() ?? new List<string>();
+    }
 }
-public  class Photo
-{
-    [JsonPropertyName("id")]
-    public long Id { get; set; }
-
-    [JsonPropertyName("width")]
-    public long Width { get; set; }
-
-    [JsonPropertyName("height")]
-    public long Height { get; set; }
-
-    [JsonPropertyName("url")]
-    public string Url { get; set; }
-
-    [JsonPropertyName("photographer")]
-    public string Photographer { get; set; }
-
-    [JsonPropertyName("photographer_url")]
-    public string PhotographerUrl { get; set; }
-
-    [JsonPropertyName("photographer_id")]
-    public long PhotographerId { get; set; }
-
-    [JsonPropertyName("avg_color")]
-    public string AvgColor { get; set; }
-
-    [JsonPropertyName("src")]
-    public Src Src { get; set; }
-
-    [JsonPropertyName("liked")]
-    public bool Liked { get; set; }
-
-    [JsonPropertyName("alt")]
-    public string Alt { get; set; }
-}
-public  class Src
-{
-    [JsonPropertyName("original")]
-    public string Original { get; set; }
-
-    [JsonPropertyName("large2x")]
-    public string Large2X { get; set; }
-
-    [JsonPropertyName("large")]
-    public string Large { get; set; }
-
-    [JsonPropertyName("medium")]
-    public string Medium { get; set; }
-
-    [JsonPropertyName("small")]
-    public string Small { get; set; }
-
-    [JsonPropertyName("portrait")]
-    public string Portrait { get; set; }
-
-    [JsonPropertyName("landscape")]
-    public string Landscape { get; set; }
-
-    [JsonPropertyName("tiny")]
-    public string Tiny { get; set; }
-}
-

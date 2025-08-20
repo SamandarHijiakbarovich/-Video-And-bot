@@ -33,3 +33,42 @@ D:\MessageBot\ConverterBot\Bot\obj\Debug\net6.0\Bot.pdb
 D:\MessageBot\ConverterBot\Bot\obj\Debug\net6.0\Bot.genruntimeconfig.cache
 D:\MessageBot\ConverterBot\Bot\obj\Debug\net6.0\ref\Bot.dll
 D:\MessageBot\ConverterBot\Bot\bin\Debug\net6.0\SpotifyAPI.Web.dll
+D:\My Projects Api\Bot\-Video-And-bot\bin\Debug\net6.0\appsettings.Development.json
+D:\My Projects Api\Bot\-Video-And-bot\bin\Debug\net6.0\appsettings.json
+D:\My Projects Api\Bot\-Video-And-bot\bin\Debug\net6.0\Bot.staticwebassets.endpoints.json
+D:\My Projects Api\Bot\-Video-And-bot\bin\Debug\net6.0\Bot.exe
+D:\My Projects Api\Bot\-Video-And-bot\bin\Debug\net6.0\Bot.deps.json
+D:\My Projects Api\Bot\-Video-And-bot\bin\Debug\net6.0\Bot.runtimeconfig.json
+D:\My Projects Api\Bot\-Video-And-bot\bin\Debug\net6.0\Bot.dll
+D:\My Projects Api\Bot\-Video-And-bot\bin\Debug\net6.0\Bot.pdb
+D:\My Projects Api\Bot\-Video-And-bot\bin\Debug\net6.0\Microsoft.OpenApi.dll
+D:\My Projects Api\Bot\-Video-And-bot\bin\Debug\net6.0\Newtonsoft.Json.dll
+D:\My Projects Api\Bot\-Video-And-bot\bin\Debug\net6.0\SpotifyAPI.Web.dll
+D:\My Projects Api\Bot\-Video-And-bot\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\My Projects Api\Bot\-Video-And-bot\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\My Projects Api\Bot\-Video-And-bot\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\My Projects Api\Bot\-Video-And-bot\bin\Debug\net6.0\Telegram.Bot.dll
+D:\My Projects Api\Bot\-Video-And-bot\obj\Debug\net6.0\Bot.csproj.AssemblyReference.cache
+D:\My Projects Api\Bot\-Video-And-bot\obj\Debug\net6.0\Bot.GeneratedMSBuildEditorConfig.editorconfig
+D:\My Projects Api\Bot\-Video-And-bot\obj\Debug\net6.0\Bot.AssemblyInfoInputs.cache
+D:\My Projects Api\Bot\-Video-And-bot\obj\Debug\net6.0\Bot.AssemblyInfo.cs
+D:\My Projects Api\Bot\-Video-And-bot\obj\Debug\net6.0\Bot.csproj.CoreCompileInputs.cache
+D:\My Projects Api\Bot\-Video-And-bot\obj\Debug\net6.0\Bot.MvcApplicationPartsAssemblyInfo.cs
+D:\My Projects Api\Bot\-Video-And-bot\obj\Debug\net6.0\Bot.MvcApplicationPartsAssemblyInfo.cache
+D:\My Projects Api\Bot\-Video-And-bot\obj\Debug\net6.0\Bot.sourcelink.json
+D:\My Projects Api\Bot\-Video-And-bot\obj\Debug\net6.0\scopedcss\bundle\Bot.styles.css
+D:\My Projects Api\Bot\-Video-And-bot\obj\Debug\net6.0\staticwebassets.build.json
+D:\My Projects Api\Bot\-Video-And-bot\obj\Debug\net6.0\staticwebassets.development.json
+D:\My Projects Api\Bot\-Video-And-bot\obj\Debug\net6.0\staticwebassets.build.endpoints.json
+D:\My Projects Api\Bot\-Video-And-bot\obj\Debug\net6.0\staticwebassets\msbuild.Bot.Microsoft.AspNetCore.StaticWebAssets.props
+D:\My Projects Api\Bot\-Video-And-bot\obj\Debug\net6.0\staticwebassets\msbuild.Bot.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+D:\My Projects Api\Bot\-Video-And-bot\obj\Debug\net6.0\staticwebassets\msbuild.build.Bot.props
+D:\My Projects Api\Bot\-Video-And-bot\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.Bot.props
+D:\My Projects Api\Bot\-Video-And-bot\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.Bot.props
+D:\My Projects Api\Bot\-Video-And-bot\obj\Debug\net6.0\staticwebassets.pack.json
+D:\My Projects Api\Bot\-Video-And-bot\obj\Debug\net6.0\Bot.csproj.Up2Date
+D:\My Projects Api\Bot\-Video-And-bot\obj\Debug\net6.0\Bot.dll
+D:\My Projects Api\Bot\-Video-And-bot\obj\Debug\net6.0\refint\Bot.dll
+D:\My Projects Api\Bot\-Video-And-bot\obj\Debug\net6.0\Bot.pdb
+D:\My Projects Api\Bot\-Video-And-bot\obj\Debug\net6.0\Bot.genruntimeconfig.cache
+D:\My Projects Api\Bot\-Video-And-bot\obj\Debug\net6.0\ref\Bot.dll

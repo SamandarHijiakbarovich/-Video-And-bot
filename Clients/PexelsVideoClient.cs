@@ -1,55 +1,32 @@
-﻿namespace Bot.Clients;
+﻿using System.Net.Http;
+using System.Text.Json;
+using Bot.Models.Pexels;
+using Microsoft.Extensions.Options;
+using Bot.Options;
+
+namespace Bot.Clients;
 
 public class PexelsVideoClient
 {
-    public int page { get; set; }
-    public int per_page { get; set; }
-    public List<Video> videos { get; set; }
-    public int total_results { get; set; }
-    public string next_page { get; set; }
-    public string url { get; set; }
+    private readonly HttpClient _httpClient;
+    private readonly PexelsOptions _options;
+
+    public PexelsVideoClient(HttpClient httpClient, IOptions<PexelsOptions> options)
+    {
+        _httpClient = httpClient;
+        _options = options.Value;
+        _httpClient.DefaultRequestHeaders.Add("Authorization", _options.ApiKey);
+    }
+
+    public async Task<List<string>> SearchVideosAsync(string query, CancellationToken cancellationToken = default)
+    {
+        var url = $"https://api.pexels.com/videos/search?query={query}&per_page=5";
+        var response = await _httpClient.GetAsync(url, cancellationToken);
+        response.EnsureSuccessStatusCode();
+
+        var json = await response.Content.ReadAsStringAsync(cancellationToken);
+        var result = JsonSerializer.Deserialize<VideoSearchResult>(json);
+
+        return result?.Videos?.Select(v => v.VideoFiles?.FirstOrDefault()?.Link).Where(l => l != null).ToList() ?? new List<string>();
+    }
 }
-
-public class Video
-{
-    public int id { get; set; }
-    public int width { get; set; }
-    public int height { get; set; }
-    public int duration { get; set; }
-    public object full_res { get; set; }
-    public List<object> tags { get; set; }
-    public string url { get; set; }
-    public string image { get; set; }
-    public object avg_color { get; set; }
-    public User user { get; set; }
-    public List<VideoFile> video_files { get; set; }
-    public List<VideoPicture> video_pictures { get; set; }
-}
-
-public class User
-{
-    public int id { get; set; }
-    public string name { get; set; }
-    public string url { get; set; }
-}
-
-public class VideoFile
-{
-    public int id { get; set; }
-    public string quality { get; set; }
-    public string file_type { get; set; }
-    public int width { get; set; }
-    public int height { get; set; }
-    public double? fps { get; set; }
-    public string link { get; set; }
-}
-public class VideoPicture
-{
-    public int id { get; set; }
-    public int nr { get; set; }
-    public string picture { get; set; }
-}
-
-
-
-
